@@ -5,14 +5,14 @@ Before using MEX, if you want to use Microsoft Visuual C++ as your C/C++ compile
 ```iecst
 https://aka.ms/vs/17/release/vs_community.exe
 ```
-, and configure your MATLAB Compiler with the followinng commands in the command window:
+, and configure your MATLAB Compiler with the following commands in the command window:
 ```iecst
 mex -setup C
 mex -setup C++
 ```
 For this application I'm using ABB IRB 120 robot urdf model.
 
-For your following robot urdf parameters extraction, to nuild transform matrix, first you need to import urdf:
+For your following robot urdf parameters extraction, to build transform matrix, first you need to import urdf:
 ```iecst
 robot = importrobot('abbIrb120.urdf');
 robot.DataFormat = 'row';
@@ -31,9 +31,9 @@ for i = 1:numel(robot.Bodies)
 end
 ```
 Next is to get urdf geometry transform matrices, to get rotation and translation part of each link.
-Because the urdf definesthe robot as: 
+Because the urdf defines the robot as: 
 Parent link ---> Fixed Transform ---> Joint Axis ---> Child Link   , a joint in urdf consists of fixed transform (origin) and rotation axis (axis).
-In short words, parent link is the first, child is the next, where again child link is a parent to the its next link. To get the transforms, simply write:
+In short words, parent link is the first, child is the next, where again child link is a parent to the its next. To get the transforms, simply write:
 ```iecst
 for i = 1:numel(robot.Bodies)
     body = robot.Bodies{i};
@@ -43,7 +43,7 @@ for i = 1:numel(robot.Bodies)
     disp(body.Joint.JointToParentTransform);
 end
 ```
-And agai to print just the joint rotation matrices, use:
+And again to print just the joint rotation matrices, use:
 ```iecst
 for i = 1:numel(robot.Bodies)
 
@@ -55,11 +55,11 @@ for i = 1:numel(robot.Bodies)
 
 end
 ```
-For the MEX function integration in your C code, you muust include library:
+For the MEX function integration in your C code, you must include library:
 ```iecst
 #include <mex.h>
 ```
-, where the mex function arguments shoud be in precise oder as below:
+, where the mex function arguments shoud be in precise order as below:
 ```iecst
 void mexFunction(
     int nlhs,              // Number of expected mxArray output arguments, specified as an integer
@@ -67,7 +67,7 @@ void mexFunction(
     int nrhs,              // Number of input arguments
     const mxArray *prhs[]) // Array of pointers to the mxArray input arguments
 ```
-To create a mex function from C code in MATLAAB, make sure .cfile is in current directory, and in command window simply write:
+To create a mex function from C code in MATLAB, make sure .c file is in current directory, and in command window simply write:
 ```iecst
 mex nameofapplication.c
 ```
