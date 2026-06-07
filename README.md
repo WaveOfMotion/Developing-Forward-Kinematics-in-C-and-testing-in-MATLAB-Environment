@@ -1,9 +1,14 @@
 # Developing-Forward-Kinematics-in-C-and-testing-in-MATLAB-Environment
 The application in C language computes forward kinematics using MATLAB URDF chain transform. Since MATLAB doesn't use DH parameters for specifying robot rigidBodyTree, a method to extract fixed-transforms, joint-axis rotations is proposed to manually compute robot transformation matrix in C. For C code to be executed, a mex function is called.
 
-Before using MEX, if you want to use Microsoft Professional as your C/C++ compiler, install VS Installer with Microsoft Professional Community 2022. Link:
+Before using MEX, if you want to use Microsoft Visuual C++ as your C/C++ compiler in MATLAB, install VS Installer with Microsoft Visual C++ 2022. Link:
 ```iecst
 https://aka.ms/vs/17/release/vs_community.exe
+```
+, and configure your MATLAB Compiler with the followinng commands in the command window:
+```iecst
+mex -setup C
+mex -setup C++
 ```
 For this application I'm using ABB IRBB 120 robot urdf model.
 
