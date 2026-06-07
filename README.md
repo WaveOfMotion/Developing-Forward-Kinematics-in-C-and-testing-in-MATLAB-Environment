@@ -10,7 +10,7 @@ https://aka.ms/vs/17/release/vs_community.exe
 mex -setup C
 mex -setup C++
 ```
-For this application I'm using ABB IRBB 120 robot urdf model.
+For this application I'm using ABB IRB 120 robot urdf model.
 
 For your following robot urdf parameters extraction, to nuild transform matrix, first you need to import urdf:
 ```iecst
