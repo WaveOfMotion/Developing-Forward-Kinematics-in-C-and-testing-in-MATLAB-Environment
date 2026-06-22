@@ -85,6 +85,6 @@ Transform_urdf = getTransform(robot,q,'tool0');
 ```
 , machine precision was returned:
 ```iecst
-Error = 0.000000000000000e+00
+Error = 1.734723475976807e-18
 ```
 , and it proved that forward kinematics in C programing can be written with high precision.
