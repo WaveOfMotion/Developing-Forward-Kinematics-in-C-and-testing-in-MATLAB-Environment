@@ -73,6 +73,10 @@ To create a mex function from C code in MATLAB, make sure .c file is in current 
 ```iecst
 mex nameofapplication.c
 ```
+In my situation:
+```iecst
+mex Call_MEX_func.c transforms.c matrix_operations.c forward_kinematics.c
+```
 # Conclusion
 After specifying joint angles, computing the transform matrix for forward kinematics and comparing with MATLAB result:
 ```iecst
