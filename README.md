@@ -78,7 +78,7 @@ In my situation:
 mex Call_MEX_func.c transforms.c matrix_operations.c forward_kinematics.c
 ```
 # Testing in Visual Studio (optional) 
-You can also test this also in Visual Studio Code by calling the main.c. Simply in terminal write:
+You can test this also in Visual Studio Code by calling the main.c. Simply in terminal write:
 ```iecst
 gcc transforms.c matrix_operations.c forward_kinematics.c main.c -lm -o main
 ```
