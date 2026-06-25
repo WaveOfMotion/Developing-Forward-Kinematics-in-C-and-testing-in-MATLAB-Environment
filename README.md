@@ -77,6 +77,7 @@ In my situation:
 ```iecst
 mex Call_MEX_func.c transforms.c matrix_operations.c forward_kinematics.c
 ```
+# Optional - testing in Visual Studio
 You can also test this also in Visual Studio Code by calling the main.c. Simply in terminal write:
 ```iecst
 gcc transforms.c matrix_operations.c forward_kinematics.c main.c -lm -o main
