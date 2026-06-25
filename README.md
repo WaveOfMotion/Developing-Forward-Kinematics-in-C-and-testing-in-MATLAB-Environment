@@ -77,6 +77,14 @@ In my situation:
 ```iecst
 mex Call_MEX_func.c transforms.c matrix_operations.c forward_kinematics.c
 ```
+You can also test this also in Visual Studio Code by calling the main.c. Simply in terminal write:
+```iecst
+gcc transforms.c matrix_operations.c forward_kinematics.c main.c -lm -o main
+```
+, which will create an .exe file in your folder. Then simply in terminal write:
+```iecst
+.\main.exe
+```
 # Conclusion
 After specifying joint angles, computing the transform matrix for forward kinematics and comparing with MATLAB result:
 ```iecst
