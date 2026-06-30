@@ -87,13 +87,14 @@ gcc FK.c main.c -lm -o main
 .\main.exe
 ```
 # Conclusion
-After specifying joint angles, computing the transform matrix for forward kinematics and comparing with MATLAB result:
+After extracting link rotations, translations from abbIrb120.urdf, I was able to construct robot transformation matrix in my C application. Calling function in main.c with desired joint angles, transform matrix was computed. Writing a small script in MATLAB and comparing the results:
 ```iecst
 q = [pi/8, pi/7, pi/7, pi/6, pi/12, -pi/12];
 Transform_urdf = getTransform(robot,q,'tool0');
+fprintf('Error = %.15e\n\n', norm(Transform_mex - Transform_urdf));
 ```
 , machine precision was returned:
 ```iecst
 Error = 5.551115123125783e-17
 ```
-, and it proved that forward kinematics in C programing can be written with high precision.
+, and it proved that my .c application returned exactly the same result by implementing robot urdf link transforms.
