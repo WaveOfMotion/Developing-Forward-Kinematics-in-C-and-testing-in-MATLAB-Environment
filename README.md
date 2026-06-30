@@ -75,12 +75,12 @@ mex nameofapplication.c
 ```
 In my situation:
 ```iecst
-mex Call_MEX_func.c transforms.c matrix_operations.c forward_kinematics.c
+mex FK_MEX.c FK.c
 ```
 # Testing in Visual Studio (optional) 
 You can test this also in Visual Studio Code by calling the main.c. Simply in terminal write:
 ```iecst
-gcc transforms.c matrix_operations.c forward_kinematics.c main.c -lm -o main
+gcc FK.c main.c -lm -o main
 ```
 , which will create an .exe file in your folder. Then simply in terminal write:
 ```iecst
@@ -89,11 +89,11 @@ gcc transforms.c matrix_operations.c forward_kinematics.c main.c -lm -o main
 # Conclusion
 After specifying joint angles, computing the transform matrix for forward kinematics and comparing with MATLAB result:
 ```iecst
-q = [pi/2, -pi/2, 0, 0, 0, 0];
+q = [pi/8, pi/7, pi/7, pi/6, pi/12, -pi/12];
 Transform_urdf = getTransform(robot,q,'tool0');
 ```
 , machine precision was returned:
 ```iecst
-Error = 1.734723475976807e-18
+Error = 5.551115123125783e-17
 ```
 , and it proved that forward kinematics in C programing can be written with high precision.
